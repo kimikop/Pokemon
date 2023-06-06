@@ -10,3 +10,6 @@ offset_poke_endpoint_fun = lambda offset: poke_endpoint + "?offset={}&limit=10".
 new_endpoint = offset_poke_endpoint_fun(offset)
 
 user_action = True
+
+while user_action:
+  
