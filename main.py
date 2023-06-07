@@ -12,3 +12,11 @@ while user_action:
   response = requests.get(new_endpoint)
   data = response.json()
   cuurent_poke = data['results']
+  pokes = []
+  for pokemon in current_poke:
+    poke_name = pokemon['name']
+    pokes.append(poke_name)
+    print("----------")
+    print(pokes)
+    user _action = input("\n\ntype: 'next' to see more pokemon opptions type: 'pokemon name' to learn more about specific pokemon, type: 'back' to see the previous list of pokemon. type 'stop' to end.\n\n:")
+    
