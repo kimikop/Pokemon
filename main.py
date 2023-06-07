@@ -4,12 +4,9 @@ import json
 import requests
 
 offset = 0
-endpoint = "https://pokeapi.co/api/v2/"
-poke_endpoint = endpoint + "pokemon/"
-offset_poke_endpoint_fun = lambda offset: poke_endpoint + "?offset={}&limit=10".format(offset)
-new_endpoint = offset_poke_endpoint_fun(offset)
-
+endpoint_without_offset = "https://pokeapi.co/api/v2/pokemon?limit=10&offset="
 user_action = True
+new_endpoint = endpoint_without_offset + str(offset)
 
 while user_action:
   
