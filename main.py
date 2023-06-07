@@ -19,4 +19,18 @@ while user_action:
     print("----------")
     print(pokes)
     user _action = input("\n\ntype: 'next' to see more pokemon opptions type: 'pokemon name' to learn more about specific pokemon, type: 'back' to see the previous list of pokemon. type 'stop' to end.\n\n:")
+    print("-----------")
+    if user_action == "stop":
+  user_action = False
+  break
+
+if user_action == "next":
+  offset += 10
+  new_endpoint = endpoint_without_offset + str(offset)
+
+elif user_action == "back":
+  if (offset > 0):
+    offset += 10
+    new_endpoint = endpoint_without_offset + str(offset)
+  else: print("You cannot go any further back")
     
