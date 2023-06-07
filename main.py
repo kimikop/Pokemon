@@ -9,4 +9,6 @@ user_action = True
 new_endpoint = endpoint_without_offset + str(offset)
 
 while user_action:
-  
+  response = requests.get(new_endpoint)
+  data = response.json()
+  cuurent_poke = data['results']
