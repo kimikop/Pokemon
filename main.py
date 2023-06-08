@@ -51,3 +51,5 @@ else:
         ability_names.append(ability_obj['name'])
       print("Abilities: ", end="")
       print(ability_names)
+      print("\n")
+      
