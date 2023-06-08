@@ -25,8 +25,9 @@ while user_action:
   print("-----------")
   if user_action == "stop":
     user_action = False
+    #getting out of the loop
     break
-
+#change the offset back and set the endpoint
   if user_action == "next":
     offset += 10
     new_endpoint = endpoint_without_offset + str(offset)
