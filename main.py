@@ -52,4 +52,5 @@ else:
       print("Abilities: ", end="")
       print(ability_names)
       print("\n")
-      
+
+new_endpoint = end_point_without_offset + Str(offset)
