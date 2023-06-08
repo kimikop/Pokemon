@@ -12,8 +12,10 @@ while user_action:
   #get the pokemon aka call the api
   response = requests.get(new_endpoint)
   response.raise_for_status()
+  
   data = response.json()
   current_poke = data['results']
+  
   #print the pokemon by putting them in a list
   pokes = []
   for pokemon in current_poke:
@@ -21,29 +23,37 @@ while user_action:
     pokes.append(poke_name)
   print("-----------")
   print(pokes)
+
+  
   user_action = input("\n\ntype: 'next' to see more pokemon options type: 'pokemon name' to learn more about specific pokemon, type: 'back' to see the previous list of pokemon. type 'stop' to end.\n\n:")
   print("-----------")
   if user_action == "stop":
     user_action = False
     #getting out of the loop
     break
-#change the offset back and set the endpoint
+    
+  #change the offset back and set the endpoint
   if user_action == "next":
     offset += 10
     new_endpoint = endpoint_without_offset + str(offset)
-
+    
+#change the offset back and set the endpoint
   elif user_action == "back":
     if (offset > 0):
       offset -= 10
       new_endpoint = endpoint_without_offset + str(offset)
-    else: print("You cannot go any further back")
+    else: 
+      print("You cannot go any further back")
 
+  #the only other option can be if the user types in a pokemon name
   else:
     poke_name = user_action
 
+    #find the pokemon from the current pokemon shown. Based on the name get the pokemon specific url and print the abilities
     for poke in current_poke:
       if poke['name'] == poke_name:
         new_endpoint = poke['url']
+
         response = requests.get(new_endpoint)
         res = response.json()
 
@@ -55,5 +65,6 @@ while user_action:
         print("Abilities: ", end="")
         print(ability_names)
         print("\n")
-
+        
+#set the new api calling place to be the same as the pokemons
     new_endpoint = endpoint_without_offset + str(offset)
