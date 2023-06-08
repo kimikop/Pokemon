@@ -2,17 +2,19 @@ import urllib.request
 import json
 import requests
 offset = 0
-
+#offset is blank so we can just add the offset at the end
 endpoint_without_offset = "https://pokeapi.co/api/v2/pokemon?limit=10&offset="
 user_action = True
 new_endpoint = endpoint_without_offset + str(offset)
 
-
+#while the action isn't "stop"
 while user_action:
+  #get the pokemon aka call the api
   response = requests.get(new_endpoint)
   response.raise_for_status()
   data = response.json()
   current_poke = data['results']
+  #print the pokemon by putting them in a list
   pokes = []
   for pokemon in current_poke:
     poke_name = pokemon['name']
