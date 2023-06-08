@@ -35,22 +35,22 @@ while user_action:
       new_endpoint = endpoint_without_offset + str(offset)
     else: print("You cannot go any further back")
 
-else:
-  poke_name = user_action
+  else:
+    poke_name = user_action
 
-  for poke in current_poke:
-    if poke['name'] == poke_name:
-      new_endpoint = poke['url']
-      response = requests.get(new_endpoint)
-      res = response.json()
+    for poke in current_poke:
+      if poke['name'] == poke_name:
+        new_endpoint = poke['url']
+        response = requests.get(new_endpoint)
+        res = response.json()
 
-      abilities = res['abilities']
-      ability_names = []
-      for item in abilities:
-        ability_obj = item['ability']
-        ability_names.append(ability_obj['name'])
-      print("Abilities: ", end="")
-      print(ability_names)
-      print("\n")
+        abilities = res['abilities']
+        ability_names = []
+        for item in abilities:
+          ability_obj = item['ability']
+          ability_names.append(ability_obj['name'])
+        print("Abilities: ", end="")
+        print(ability_names)
+        print("\n")
 
-new_endpoint = end_point_without_offset + Str(offset)
+    new_endpoint = endpoint_without_offset + str(offset)
